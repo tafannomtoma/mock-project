@@ -60,9 +60,9 @@ const Shop = () => {
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
+                    <a href="#">Phone</a>
+                    <a href="#">Laptop</a>
+                    <a href="#">Watch</a>
                 </div>
                 <hr />
             </div>
@@ -94,9 +94,9 @@ const Shop = () => {
                                             {product.details}
                                         </Typography>
                                     </CardContent>
-                                    <Link to={`/purchase/${product._id}`}>
+                                    
                                         <Button><i class="fas fa-arrow-right"></i></Button>
-                                    </Link>
+                                   
 
 
 
