@@ -1,11 +1,11 @@
-import { Button, Card, CardActions, CardContent, CardMedia, Container, Link, Typography } from '@mui/material';
+import { Button, Card,  CardContent, CardMedia, Container, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-// import React, { useState } from 'react';
+import React, { useState } from 'react';
 import "./Shop.css";
 
 const Shop = () => {
-    // const [product, setProduct] = useState([]);
+   
 
     const products = [
         {
@@ -17,7 +17,7 @@ const Shop = () => {
             img:'https://cdn.mos.cms.futurecdn.net/6t8Zh249QiFmVnkQdCCtHK.jpg'
         },
         {
-            id: 1,
+            id: 2,
             name: 'phone',
             price: '50$',
             details: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem nihil illum asperiores eaque sequi cumque ducimus accusamus, deleniti enim sapiente!',
@@ -25,7 +25,7 @@ const Shop = () => {
             img:'https://cdn.vox-cdn.com/thumbor/v97OD-MBgNjw8p5crApucVs9RB8=/0x0:2050x1367/1800x1800/filters:focal(1025x684:1026x685)/cdn.vox-cdn.com/uploads/chorus_asset/file/22022572/bfarsace_201106_4269_012.0.jpg'
         },
         {
-            id: 1,
+            id: 3,
             name: 'laptop',
             price: '600$',
             details: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem nihil illum asperiores eaque sequi cumque ducimus accusamus, deleniti enim sapiente!',
@@ -33,7 +33,7 @@ const Shop = () => {
             img:'https://cdn.vox-cdn.com/thumbor/lRwetR_dg8WBLFIUPzY7l0QYCaI=/1400x0/filters:no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/22411713/cfaulkner_20210326_4491_0006.jpg'
         },
         {
-            id: 1,
+            id: 4,
             name: 'watch',
             price: '200$',
             details: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem nihil illum asperiores eaque sequi cumque ducimus accusamus, deleniti enim sapiente!',
@@ -41,7 +41,7 @@ const Shop = () => {
             img:'https://s.yimg.com/uu/api/res/1.2/H_XR71HzcWN.HZiiaAGlNQ--~B/Zmk9ZmlsbDtoPTQ1MDt3PTY3NTthcHBpZD15dGFjaHlvbg--/https://s.yimg.com/os/creatr-uploaded-images/2020-12/31dc4250-3ec5-11eb-b5ef-d588743dbedb.cf.jpg'
         },
         {
-            id: 1,
+            id: 5,
             name: 'phone',
             price: '400$',
             details: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem nihil illum asperiores eaque sequi cumque ducimus accusamus, deleniti enim sapiente!',
@@ -50,19 +50,28 @@ const Shop = () => {
         }
         
     ]
+    const [select, setselect] = useState(products)
+    const selectHandler = (name) => {
+        const result = products.filter((curData)=>{
+            // if (curData.name === select)
+            return curData.name === name;
+            
+        });
+        setselect(result);
+        console.log(result);
+    }
     
     return (
         <div >
-            {/* <a href="#home">Home</a>
-            <a href="#news">News</a> */}
+          
             <div class="dropdown">
                 <button class="dropbtn">Category
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="#">Phone</a>
-                    <a href="#">Laptop</a>
-                    <a href="#">Watch</a>
+                    <a href="#" onClick={() => selectHandler('phone')}>Phone</a>
+                    <a href="#" onClick={() => selectHandler('laptop')}>Laptop</a>
+                    <a href="#" onClick={() => selectHandler('watch')}>Watch</a>
                 </div>
                 <hr />
             </div>
@@ -73,7 +82,7 @@ const Shop = () => {
                        
                     <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                         {
-                            products.map(product => <Grid item xs={4} sm={4} md={3} sx={{ mt: 5 }}
+                            select.map(product => <Grid item xs={4} sm={4} md={3} sx={{ mt: 5 }}
                             >
                                 <Card sx={{ minWidth: 275 }}>
                                     <CardMedia
